@@ -16,6 +16,9 @@ var addItem = function (item) {
   // this function needs to:
   // - create an li element containing the string 'item'
   // - append the li to the "todo-list" ul
+  let taskItem = document.createElement("li");
+  taskItem.innerText = item;
+  ul.appendChild(taskItem);
 }
 
 var handleButtonClick = function () {
