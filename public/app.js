@@ -9,6 +9,9 @@ var init = function () {
 var populate = function (todos) {
   // this function needs to:
   // - loop through the array of todos, invoking addItem() for each todo item
+  todos.forEach(function(task){
+    return addItem(task);
+  })
 }
 
 var addItem = function (item) {
