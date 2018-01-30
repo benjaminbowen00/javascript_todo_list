@@ -29,8 +29,8 @@ var handleButtonClick = function () {
   var input = document.querySelector('#new-item');
   var task = input.value;
   input.value = '';
-  var taskItem = addItem(task);
-  save(taskItem);
+  addItem(task);
+  save(task);
 }
 
 var save = function (newItem) {
@@ -38,7 +38,15 @@ var save = function (newItem) {
   // - get the data back from local storage and parse to an array
   // - add the newItem to the array
   // - stringify the updated array
-  // - save it back to localstoage
+  // - save it back to localstorage
+  console.log(newItem);
+  var jsonString = localStorage.getItem('todoList');
+  var savedTasks = JSON.parse(jsonString) || [];
+
+  savedTasks.push(newItem);
+  var newJsonString = JSON.stringify(savedTasks);
+  localStorage.setItem('todoList', newJsonString);
+
 }
 
 window.addEventListener('load', init);
